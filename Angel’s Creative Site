@@ -1,0 +1,71 @@
+#!/bin/bash
+# ===============================================
+# 🚀 Auto GitHub Upload Script – Angel’s Creative Site
+# Author: Awn Hpa Lu @ Angel
+# Email: angeldj1103@gmail.com
+# Location: Bangkok, Thailand
+# ===============================================
+
+# 💡 STEP 1: Folder location
+cd ~/Downloads || exit
+unzip -o "Angel-Creative-Site_Final-Deluxe.zip"
+cd "Angel-Creative-Site_Final-Deluxe" || exit
+
+# 💡 STEP 2: Initialize Git
+git init
+
+# 💡 STEP 3: Create README.md
+cat > README.md << 'EOF'
+# 🌐 Angel’s Creative Site
+
+This is my **personal creative portfolio website** built with HTML, CSS, and JavaScript.  
+It showcases my design projects, digital branding, photography collaborations, and marketing works.
+
+## ✨ Features
+- Animated background and smooth scrolling  
+- Blue & white luxury theme  
+- Interactive project gallery  
+- Responsive for desktop & mobile  
+
+## 📩 Contact
+**Name:** Awn Hpa Lu @ Angel  
+**Email:** angeldj1103@gmail.com  
+**Phone:** +66 650 292911  
+**Location:** Bangkok, Thailand  
+
+© 2025 Angel Creative. All rights reserved.
+EOF
+
+# 💡 STEP 4: Optional .gitignore file
+cat > .gitignore << 'EOF'
+.DS_Store
+node_modules/
+*.zip
+*.log
+EOF
+
+# 💡 STEP 5: Commit files
+git add .
+git commit -m "🚀 Initial commit - Angel’s Creative Site"
+
+# 💡 STEP 6: Connect to GitHub
+# 👉 Replace the below URL with your actual GitHub repo link
+# Example: https://github.com/angeldj1103/angels-creative-site.git
+read -p "Enter your GitHub repository HTTPS link: " REPO_URL
+git branch -M main
+git remote add origin "$REPO_URL"
+git push -u origin main
+
+# 💡 STEP 7: Show success message
+echo ""
+echo "🎉 Upload complete! Visit your GitHub repository:"
+echo "$REPO_URL"
+echo ""
+echo "🪄 To enable GitHub Pages:"
+echo "1. Go to Settings → Pages"
+echo "2. Choose 'main' branch and '/' folder"
+echo "3. Click 'Save' and wait a minute"
+echo "Then your site will be live at:"
+echo "👉 https://<yourusername>.github.io/<repository-name>/"
+echo ""
+echo "✅ Done — Angel’s Creative Site is now online!"
